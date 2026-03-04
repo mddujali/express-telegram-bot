@@ -4,10 +4,17 @@
   "description": "Telegram Bot with Express.js",
   "private": "true",
   "main": "dist/server.js",
+  "imports": {
+    "#bot/*": {
+      "types": "./src/bot/*.ts",
+      "development": "./src/bot/*.ts",
+      "default": "./dist/bot/*.js"
+    }
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
-    "dev": "nodemon --watch src --ext ts --exec \"node --no-network-family-autoselection --loader ts-node/esm src/server.ts\"",
+    "dev": "nodemon --watch src --ext ts --exec \"node --loader ts-node/esm src/server.ts\"",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --check",

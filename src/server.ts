@@ -14,7 +14,7 @@ const APP_PORT = process.env.APP_PORT;
 const APP_URL = process.env.APP_URL;
 
 import { webhookCallback } from 'grammy';
-import { createBot } from './bot/webhook.js';
+import { createBot } from '#bot/webhook';
 
 const bot = createBot(process.env.TELEGRAM_BOT_TOKEN!);
 
