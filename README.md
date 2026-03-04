@@ -1,9 +1,18 @@
 # Express.js with Telegram
 
-Simple project that implements Telegram bot with Express.js
+Simple project that implements Telegram Bot with Express.js.
 
 
 ## Requirements
 
 - Node.js 22.x.x or higher
 - NPM 10.x.x or higher
+- Install [Ngrok](https://ngrok.com/) to expose your local server to the internet
+
+# Telegram Bot Polling
+- Run `npm run build` to build the project
+- Run `node --no-network-family-autoselection ./dist/bot/polling.js` to start the bot
+
+# Telegram Bot Webhook
+- Run `npm run dev` to start the server
+- Run `ngrok http <port>` to expose your local server to the internet
