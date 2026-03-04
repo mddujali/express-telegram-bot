@@ -4,33 +4,45 @@ import { expand } from 'dotenv-expand';
 const env = dotenv.config();
 expand(env);
 
-import { Bot } from 'grammy';
-import { Ray, ray } from 'node-ray';
+import { Ray } from 'node-ray';
 
 await Ray.initSettings();
 
-const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN!);
+import express from 'express';
 
-bot.command('start', async (ctx) => {
-  ray(ctx);
+const APP_PORT = process.env.APP_PORT;
+const APP_URL = process.env.APP_URL;
 
-  await ctx.reply('Welcome! Up and running.');
+import { webhookCallback } from 'grammy';
+import { createBot } from './bot/webhook.js';
+
+const bot = createBot(process.env.TELEGRAM_BOT_TOKEN!);
+
+const app = express();
+
+app.use(express.json());
+
+app.get('/health', (_req, res) => {
+  res.json({ message: 'Service is running.' });
 });
 
-bot.on('message', async (ctx) => {
-  ray(ctx);
+app.post('/send-message', async (req, res) => {
+  const { chatId, text } = req.body;
 
-  await ctx.reply('Got another message!');
+  const data = await bot.api.sendMessage(chatId, text);
+
+  res.json({
+    message: 'Success.',
+    data,
+  });
 });
 
-async function main() {
-  await bot.start();
-}
+const webhookPath = `/telegram/${process.env.TELEGRAM_BOT_WEBHOOK_SECRET}`;
 
-main().catch((err) => {
-  ray(err).red();
+app.post(webhookPath, webhookCallback(bot, 'express'));
 
-  console.error('Error starting the bot:', err);
+app.listen(APP_PORT, () => {
+  console.log(`Server listening on ${APP_URL}`);
 
-  process.exit(1);
+  console.log(`Webhook endpoint: ${APP_URL}${webhookPath}`);
 });
