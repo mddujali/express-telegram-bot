@@ -21,7 +21,8 @@
     "dotenv": "^17.3.1",
     "dotenv-expand": "^12.0.3",
     "express": "^5.2.1",
-    "grammy": "^1.41.1"
+    "grammy": "^1.41.1",
+    "node-ray": "^3.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
