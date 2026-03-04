@@ -21,7 +21,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --check",
-    "format:write": "prettier . --write"
+    "format:write": "prettier . --write",
+    "bot:polling": "node --no-network-family-autoselection ./dist/bot/polling.js"
   },
   "keywords": [],
   "author": "",

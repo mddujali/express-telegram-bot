@@ -11,7 +11,7 @@ Simple project that implements Telegram Bot with Express.js.
 # Telegram Bot Polling
 
 - Run `npm run build` to build the project
-- Run `node --no-network-family-autoselection ./dist/bot/polling.js` to start the bot
+- Run `npm run bot:polling` to start the bot
 
 # Telegram Bot Webhook
 
