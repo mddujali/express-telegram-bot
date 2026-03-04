@@ -1,4 +1,4 @@
-# Express.js with Telegram
+# Express.js with Telegram Bot
 
 Simple project that implements Telegram Bot with Express.js.
 
@@ -17,3 +17,9 @@ Simple project that implements Telegram Bot with Express.js.
 
 - Run `npm run dev` to start the server
 - Run `ngrok http <port>` to expose your local server to the internet
+
+# References
+- [Telegram Bot API](https://core.telegram.org/bots/api)
+- [Bot API Library Examples](https://core.telegram.org/bots/samples)
+- [grammY](https://grammy.dev/)
+- [Postman Collection](https://documenter.getpostman.com/view/3065626/2sBXcKCe8t)
