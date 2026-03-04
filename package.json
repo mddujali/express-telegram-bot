@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Telegram Bot with Express.js",
   "private": "true",
+  "engines": {
+    "node": ">=22.x"
+  },
   "main": "dist/server.js",
   "imports": {
     "#bot/*": {
