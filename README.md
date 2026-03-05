@@ -15,10 +15,12 @@ Simple project that implements Telegram Bot with Express.js.
 
 # Telegram Bot Webhook
 
+- Run `npm run build` to build the project
 - Run `npm run dev` to start the server
 - Run `ngrok http <port>` to expose your local server to the internet
 
 # References
+
 - [Telegram Bot API](https://core.telegram.org/bots/api)
 - [Bot API Library Examples](https://core.telegram.org/bots/samples)
 - [grammY](https://grammy.dev/)
